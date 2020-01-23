@@ -8,6 +8,11 @@ var margin = {
         bottom: 25
         };
 
+var svg = d3.select("body")
+        .append("svg")
+        .attr("width",width)
+        .attr("height",height);
+
 var realtimeURL = "https://whiteboard.datawheel.us/api/google-analytics/realtime/random";
 var frequency = 10 * 100; 
 
@@ -18,11 +23,6 @@ function fetchData() {
 
     var data = []
     data.push(users);
-
-    var svg = d3.select("body")
-            .append("svg")
-            .attr("width",width)
-            .attr("height",height);
 
     var circle = svg.selectAll("circle")
             .data(data)
