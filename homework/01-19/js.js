@@ -2,10 +2,10 @@ var width = 400;
 var height = 400;
 
 var margin = {
-        top: 25,
-        left: 25,
-        right: 25,
-        bottom: 25
+        top: 20,
+        left: 20,
+        right: 20,
+        bottom: 20
         };
 
 var svg = d3.select("body")
