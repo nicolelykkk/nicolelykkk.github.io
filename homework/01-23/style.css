@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    background-color: wheat;
+}
+
+#chart {
+    margin-top: 200px;
+}
+
+#title {
+    font-size: larger;
+    font-family: sans-serif;
+    color: brown;
+    text-align: center;
+}
