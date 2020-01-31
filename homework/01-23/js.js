@@ -22,6 +22,7 @@
             var xAxis = svg.append("g")
                 .attr("class","axis")
                 .attr("transform", `translate(0,${height-margin.bottom})`)
+                // .tickFormat(d3.timeFormat("%H:%M%S"));
 
             function fetchData() {
         
@@ -32,7 +33,7 @@
                             timestamp: new Date()
                         };
                         
-                        // var formatTime = d3.timeFormat("%B %d, %Y");
+                        var formatTime = d3.timeFormat("%B %d, %Y");
                         //     formatTime(new Date);
 
                         data.unshift(dataObject);
@@ -58,7 +59,7 @@
                             .scale(x)
                             .tickFormat(function(d) {
                                 if (d % 1) return "";
-                                if (data[d - 1]) return data[d - 1].timestamp;
+                                if (data[d - 1]) return formatTime (data[d - 1].timestamp);
                                 return "";
                             });
 
