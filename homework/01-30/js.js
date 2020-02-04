@@ -160,7 +160,8 @@ function fetchData() {
                     line++;
                     tspan.text(sentence);
                     tspan = textElement.append("tspan")
-                    .attr("y", fontSize * line )
+                    // .attr("y", fontSize * line )
+                    .attr("y", barHeight(d.users) + fontSize * line)
                     .attr("x", x( i + 1 ))
                         .text(word);
                 }
