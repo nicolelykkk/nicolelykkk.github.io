@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    background-color: wheat;
+}
+
+#chart {
+    margin-top: 200px;
+}
+
+#title {
+    font-size: larger;
+    font-family: sans-serif;
+    color: brown;
+    text-align: center;
+}
+
+.box {
+    fill: transparent;
+    stroke: red;
+    stroke-width: 2px;
+}
+
+tspan {
+    baseline-shift: -100%;
+}
+
+.label {
+    font-family: sans-serif;
+    font-weight: lighter;
+    fill:black;
+}
+
+tspan {
+    baseline-shift: -100%;
+}
