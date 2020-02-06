@@ -111,7 +111,7 @@ function fetchData() {
         var enterLabels = labels.enter().append("text")
             .attr("class", "label")
             .attr("font-size", fontSize)
-            .attr("y", height)
+            .attr("y", function(d){ return barHeight(d.users)})
             .attr("x", function(d, i) {
                 return x( i + 1 );
             })
