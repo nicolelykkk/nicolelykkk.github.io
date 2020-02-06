@@ -150,7 +150,9 @@ function fetchData() {
             words.forEach ( function (word) {
 
                 var sentence = tspan.text();
-                tspan.text(sentence + " " + word);
+                tspan.text(sentence + " " + word)
+                    .attr("y", barHeight(d.users) + fontSize * line)
+                    .attr("x", x( i + 1 ));
 
                 var domElement = tspan.node();
                 var tspanWidth = domElement.getBoundingClientRect().width;
