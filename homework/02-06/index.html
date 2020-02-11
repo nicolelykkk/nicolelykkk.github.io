@@ -71,13 +71,13 @@
                         .call(d3.axisLeft().scale(yScale));
 
                     var bar = svg.selectAll("rect")
-                        .data(data)
+                        .data(data.data)
                         .enter()
                         .append("rect")
-                            .attr("x", function(d) { return data.Year})
-                            .attr("y", function(d) { return data.Population })
+                            .attr("x", function(d) { return xScale(d.Year);})
+                            .attr("y", function(d) { return yScale(d.Population); })
                             .attr("width", 50)
-                            .attr("height", function(d) { return height - margin.bottom - yScale(data.Population);})
+                            .attr("height", function(d) { return height - margin.bottom - yScale(d.Population);})
                             .attr("fill","steelblue");
 
                     var xAxisLabel = svg.append("text")
