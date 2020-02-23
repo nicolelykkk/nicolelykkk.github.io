@@ -1,0 +1,53 @@
+Area,Date,Images,GEWIDTH,GMWIDTH,GMHEIGHT,URL,Longitude,Latitude,Location,NYS Municipal Boundaries,New York Zip Codes,Counties
+Adirondack Sub-alpine Forest,11/16/01,Adirondack.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/7404.html'},-74.16941719,44.04909737,"{'latitude': '44.0490973692', 'longitude': '-74.1694171938'}",438,,2084
+Albany Pine Bush,9/18/08,Albany.jpg,175,0,0,{'url': 'http://www.dec.ny.gov/animals/48628.html'},-73.88628273,42.71791823,"{'latitude': '42.7179182268', 'longitude': '-73.8862827294'}",832,1229,2030
+Ashland,5/6/03,Ashland.jpg,300,160,120,{'url': 'http://www.dec.ny.gov/animals/27725.html'},-76.19942508,44.11300268,"{'latitude': '44.1130026784', 'longitude': '-76.1994250785'}",848,1483,2089
+Bashakill,6/16/00,Bashakill.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27702.html'},-74.50683426,41.54514019,"{'latitude': '41.5451401943', 'longitude': '-74.5068342639'}",653,780,2180
+Bear Swamp,9/25/06,Bear.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/31803.html'},-76.29928363,42.75164524,"{'latitude': '42.7516452379', 'longitude': '-76.2992836292'}",71,662,618
+Black Creek Marsh,9/25/06,Black.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/31815.html'},-73.96302309,42.66624094,"{'latitude': '42.6662409369', 'longitude': '-73.9630230899'}",832,16,2030
+Braddock Bay,5/5/00,Braddock.jpeg,250,175,117,{'url': 'http://www.dec.ny.gov/animals/27691.html'},-77.6942944,43.27405953,"{'latitude': '43.274059525', 'longitude': '-77.6942944027'}",548,1670,2093
+Buckhorn Island,8/31/98,Buckhorn.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27685.html'},-78.98808169,43.0618647,"{'latitude': '43.0618647012', 'longitude': '-78.9880816874'}",290,526,2041
+Carlton Hill,9/25/06,Carlton.jpeg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/31821.html'},-78.15279531,42.8448545,"{'latitude': '42.8448544998', 'longitude': '-78.152795305'}",396,1659,2186
+Carter's Pond,10/22/02,Carter.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27658.html'},-73.42037712,43.17290546,"{'latitude': '43.1729054599', 'longitude': '-73.4203771164'}",724,146,2184
+Catharine Creek,10/3/08,Catharine.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/48724.html'},-76.85001465,42.36288905,"{'latitude': '42.3628890488', 'longitude': '-76.8500146476'}",644,53,2143
+Catskill High Peaks,6/10/99,Catskill.jpeg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27654.html'},-74.36847127,42.05175925,"{'latitude': '42.0517592475', 'longitude': '-74.3684712747'}",410,257,2182
+Caumsett,9/25/06,Caumsett.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/31830.html'},-73.46813429,40.92732207,"{'latitude': '40.9273220738', 'longitude': '-73.4681342882'}",1020,1120,2179
+Clay Pit Ponds,3/14/05,Clay.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27467.html'},-74.22930946,40.54101902,"{'latitude': '40.5410190236', 'longitude': '-74.2293094598'}",585,612,2139
+Constitution Marsh,5/18/01,Constitution.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27458.html'},-73.94374442,41.40538253,"{'latitude': '41.4053825331', 'longitude': '-73.9437444181'}",100,1203,627
+Crown Point,9/25/06,Crown.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32000.html'},-73.43125818,44.02002067,"{'latitude': '44.0200206688', 'longitude': '-73.431258181'}",453,220,2084
+David A. Sarnoff Pine Barrens Preserve,8/31/98,David.jpg,200,112,120,{'url': 'http://www.dec.ny.gov/animals/27036.html'},-72.65395544,40.89093084,"{'latitude': '40.8909308368', 'longitude': '-72.6539554413'}",1013,1530,2179
+Eastern Lake Ontario Marshes,8/31/98,Eastern.jpg,300,160,120,{'url': 'http://www.dec.ny.gov/animals/27256.html'},-76.19430131,43.72909974,"{'latitude': '43.7290997409', 'longitude': '-76.1943013089'}",853,1575,2089
+Fahnestock,9/29/00,Fahnestock.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27252.html'},-73.85536877,41.45408064,"{'latitude': '41.4540806376', 'longitude': '-73.8553687652'}",100,1203,627
+Harbor Herons,11/16/01,Harbor.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27238.html'},-74.17620882,40.62935338,"{'latitude': '40.6293533817', 'longitude': '-74.176208817'}",585,606,2139
+Helderberg,2/6/04,Helderberg.jpg,350,160,120,{'url': 'http://www.dec.ny.gov/animals/27233.html'},-74.18214151,42.57174727,"{'latitude': '42.5717472707', 'longitude': '-74.1821415143'}",813,1150,2030
+High Tor,3/12/02,High.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27226.html'},-77.35603583,42.62243323,"{'latitude': '42.6224332274', 'longitude': '-77.3560358296'}",95,323,2225
+Iona Island/Doodletown,8/31/98,Lona.jpg,250,180,120,{'url': 'http://www.dec.ny.gov/animals/30779.html'},-73.99106655,41.29620345,"{'latitude': '41.2962034472', 'longitude': '-73.9910665534'}",528,1652,628
+John Boyd Thacher/Thompson's Lake,4/26/04,John.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27016.html'},-74.01011185,42.64639043,"{'latitude': '42.6463904279', 'longitude': '-74.0101118514'}",830,16,2030
+Joseph Davis,3/14/05,Joseph.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27159.html'},-79.04053956,43.21346543,"{'latitude': '43.2134654291', 'longitude': '-79.0405395637'}",164,31,2131
+Keeney Swamp,9/25/06,Keeney.jpg,350,181,120,{'url': 'http://www.dec.ny.gov/animals/32002.html'},-77.88701312,42.42462331,"{'latitude': '42.4246233138', 'longitude': '-77.8870131217'}",466,1768,2031
+Lake Champlain Marshes,3/9/02,Champlain.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27650.html'},-73.42632396,44.53283525,"{'latitude': '44.5328352508', 'longitude': '-73.4263239574'}",454,296,2084
+Lake Ontario Islands,8/18/05,Ontario.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27149.html'},-76.39585902,43.884899,"{'latitude': '43.8848989988', 'longitude': '-76.3958590186'}",851,1615,
+Lake Shore Marshes,9/25/06,Shore.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32004.html'},-76.84905634,43.28887926,"{'latitude': '43.2888792622', 'longitude': '-76.8490563365'}",636,1658,631
+Letchworth,9/25/06,Letchworth.jpg,350,180,120,{'url': 'http://www.dec.ny.gov/animals/32006.html'},-77.97487637,42.64684734,"{'latitude': '42.6468473395', 'longitude': '-77.9748763677'}",402,369,2186
+Long Pond,5/6/03,Long.jpg,300,150,120,{'url': 'http://www.dec.ny.gov/animals/27140.html'},-75.82947877,42.41699899,"{'latitude': '42.4169989948', 'longitude': '-75.8294787733'}",255,458,2037
+Minnewaska,9/25/06,Minnewaska.jpeg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32008.html'},-74.27673027,41.71414476,"{'latitude': '41.7141447628', 'longitude': '-74.2767302695'}",407,195,2182
+Mongaup Valley,6/16/00,Mongaup.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27134.html'},-74.7921181,41.54594602,"{'latitude': '41.5459460218', 'longitude': '-74.7921181034'}",654,1048,2180
+Montezuma Wetlands Complex,5/5/00,Montezuma.jpeg,250,175,115,{'url': 'http://www.dec.ny.gov/animals/27124.html'},-76.74296662,43.08111765,"{'latitude': '43.0811176528', 'longitude': '-76.7429666225'}",629,687,631
+Moreau Lake,12/19/06,Moreau.jpg,225,0,0,{'url': 'http://www.dec.ny.gov/animals/32013.html'},-73.74009763,43.23670155,"{'latitude': '43.2367015515', 'longitude': '-73.7400976339'}",998,93,2141
+Napeague,5/14/08,Napeague.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/45834.html'},-72.07268353,40.99272214,"{'latitude': '40.9927221441', 'longitude': '-72.0726835337'}",1021,1531,2179
+Nissequogue River,4/28/00,Nissequogue.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27112.html'},-73.22710932,40.9001362,"{'latitude': '40.9001361957', 'longitude': '-73.227109319'}",1014,1127,2179
+Oak Orchard/Tonawanda,10/22/02,Oak.jpeg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27107.html'},-78.43546297,43.10671235,"{'latitude': '43.106712347', 'longitude': '-78.4354629721'}",797,488,2086
+Peconic River Headwaters,9/25/06,Peconic.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32019.html'},-72.75778574,40.90741796,"{'latitude': '40.9074179575', 'longitude': '-72.757785744'}",1017,1534,2179
+Perch River,11/16/01,Perch.jpg,275,160,120,{'url': 'http://www.dec.ny.gov/animals/27073.html'},-75.94778859,44.10923,"{'latitude': '44.109229997', 'longitude': '-75.9477885874'}",847,1580,2089
+Pharsalia,10/22/02,Pharsalia.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27042.html'},-75.71347109,42.62908798,"{'latitude': '42.6290879758', 'longitude': '-75.7134710874'}",260,461,2037
+Point Peninsula,9/25/06,Point.jpg,300,160,120,{'url': 'http://www.dec.ny.gov/animals/32025.html'},-76.25348138,43.99920407,"{'latitude': '43.9992040708', 'longitude': '-76.253481376'}",848,1620,2089
+Schodack Island,6/19/02,Schodack.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27032.html'},-73.77888179,42.47748471,"{'latitude': '42.4774847056', 'longitude': '-73.7788817898'}",112,1403,2138
+Selkirk Shores,9/25/06,Selkirk.jpeg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32027.html'},-76.20033216,43.55585224,"{'latitude': '43.5558522447', 'longitude': '-76.200332155'}",235,683,2135
+South Shore Tidal Wetlands,2/6/04,South.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27026.html'},-73.13318998,40.72034131,"{'latitude': '40.7203413084', 'longitude': '-73.1331899789'}",1019,1111,2179
+Sterling Forest,10/26/01,Sterling.jpg,350,181,120,{'url': 'http://www.dec.ny.gov/animals/27021.html'},-74.25714492,41.21508379,"{'latitude': '41.2150837919', 'longitude': '-74.2571449223'}",885,1653,2134
+Three Mile Bay,9/25/06,Mile.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32033.html'},-76.06872564,43.26091444,"{'latitude': '43.2609144437', 'longitude': '-76.0687256415'}",230,703,2135
+Three Rivers,9/25/06,Three.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32035.html'},-76.32904331,43.20167673,"{'latitude': '43.2016767278', 'longitude': '-76.3290433111'}",697,671,2132
+Tivoli Bay,9/25/06,Tivoli.jpg,300,160,120,{'url': 'http://www.dec.ny.gov/animals/32051.html'},-73.916889,42.03785716,"{'latitude': '42.0378571644', 'longitude': '-73.9168889995'}",586,948,2040
+Upper and Lower Lakes,10/22/02,Upper.jpg,300,160,120,{'url': 'http://www.dec.ny.gov/animals/27009.html'},-75.26349589,44.5768061,"{'latitude': '44.5768061035', 'longitude': '-75.2634958879'}",339,1478,2140
+Valcour Island,9/25/06,Valcour.jpg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/32055.html'},-73.41655685,44.62136628,"{'latitude': '44.6213662824', 'longitude': '-73.4165568527'}",5,202,2038
+Vischer Ferry,11/27/06,Vischer.jpeg,0,0,0,{'url': 'http://www.dec.ny.gov/animals/27006.html'},-73.79689258,42.78967157,"{'latitude': '42.7896715701', 'longitude': '-73.7968925814'}",1009,1311,2141
