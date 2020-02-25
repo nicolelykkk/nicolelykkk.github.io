@@ -103,7 +103,7 @@
             });
 
             var barColor = d3.scaleSequential(d3.interpolateWarm) //color
-                .domain([0, maximum])
+                .domain([0, maximum]);
                 // .range(["purple", "yellow"]);
 
             var stops = d3.range(0, 1.25, 0.25) //less than 1.25, not equal to 1.25

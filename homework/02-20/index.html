@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset = "utf-8" />
+                <title>Realtime Data</title>
+                <script src = "https://d3js.org/d3.v4.min.js"></script>
+        </head>
+
+        <body>
+
+                <svg id="chart">
+                        <defs>
+                        <linearGradient id = "colorGradient">
+                        </linearGradient>
+                        </defs>
+        
+                <g id="shapes"></g>
+                <!-- <g id="x"></g>
+                <g id="y"></g> -->
+                <g id="scale">
+                        <rect id="scaleRect" fill="url(#colorGradient)" />
+                        <g id="scaleAxis"></g>
+                </g>
+        
+                </svg>
+
+                <script src="./js.js"></script>
+
+
+        </body>
+</html>
