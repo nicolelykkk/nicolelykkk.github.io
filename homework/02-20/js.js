@@ -40,11 +40,11 @@ function fetchData() {
     data.push(users);
 
     var maximum = d3.max(data, function(d) {
-        return d.users;
+        return d;
     });
 
-    var circleColor = d3.scaleSequential(d3.interpolateWarm)
-    .domain([0, maximum]);
+    var circleColor = d3.scaleSequential(d3.interpolateRainbow)
+    .domain([0, 10]);
 
     var stops = d3.range(0, 1.25, 0.25) 
     console.log(stops);
@@ -58,7 +58,7 @@ function fetchData() {
                     return circleColor(d * maximum);
                 });
 
-            var gradientScale = d3.scaleSqrt() //?
+            var gradientScale = d3.scaleLinear()
                 .domain([0, maximum])
                 .range([0, scaleWidth]);
 
@@ -82,7 +82,6 @@ function fetchData() {
             .enter()
             .append("circle")
             .attr("fill", "transparent")
-            // .style("opacity", 0.7)
             .attr("r", data);
 
     var circle = d3.selectAll("circle");
@@ -94,7 +93,7 @@ function fetchData() {
         .attr("cx", 200)
         .attr("cy", 200)
         .attr("fill", function(d){
-            return circleColor(d.users);
+            return circleColor(d);
         })
         .attr("r", data)
     .merge(c)
@@ -103,9 +102,8 @@ function fetchData() {
         .attr("cx", 200)
         .attr("cy", 200)
         .attr("fill", function(d){
-            return circleColor(d.users);
+            return circleColor(d);
         })
-        .attr("opacity", 0.7)
         .attr("r", data);
     
     c.exit().remove();
