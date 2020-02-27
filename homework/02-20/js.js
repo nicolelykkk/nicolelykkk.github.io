@@ -16,10 +16,10 @@ var svg = d3.select("#chart")
         .attr("width",width)
         .attr("height",height);
 
-var scaleWidth = 300;
+var scaleWidth = width;
 var scaleHeight = 20;
 var scaleX = margin.left + chartWidth / 2 - scaleWidth / 2;
-var scaleY = margin.top + chartHeight + 40;
+var scaleY = margin.top + 500;
 
 var scale = svg.select("#scale")
 .attr("transform", "translate(" + scaleX + "," + scaleY + ")");
@@ -108,6 +108,38 @@ function fetchData() {
     
     c.exit().remove();
 
+
+                var circle1 = svg.selectAll("circle1")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("fill", "transparent")
+                .attr("r", data);
+
+                var circle1 = d3.selectAll("circle1");
+
+                var e = svg.selectAll("circle1") 
+                .data(data);
+
+                e.enter().append("circle") 
+                .attr("cx", width - 200)
+                .attr("cy", 200)
+                .attr("fill", function(d){
+                    return circleColor(d);
+                })
+                .attr("r", data)
+                .merge(e)
+                .transition()
+                .duration(1000)
+                .attr("cx", width - 200)
+                .attr("cy", 200)
+                .attr("fill", function(d){
+                    return circleColor(d);
+                })
+                .attr("r", data);
+
+                e.exit().remove();
+                
     });
 }
 
