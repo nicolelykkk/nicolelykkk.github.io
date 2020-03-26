@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#banner {
+    background-color: black;
+    background-position: 50% 100%;
+    background-size: cover;
+    color:white;
+    padding: 50vh 20px;
+    text-align: center;
+    text-shadow: 0 0 5px black;
+}
+
+.countryName {
+    padding-left: 50pt;
+    font-size: 20pt;
+    font-weight: bolder;
+}
+
+.section {
+    display: flex;
+    padding: 80px;
+    }
+
+.section p {
+    flex: 1;
+}
+
+.section svg {
+    border: 1px solid black;
+    background-color: black;
+    flex: 2;
+    height: 400px;
+    margin: 20px;
+}
+
+@media (max-width: 600px) {
+    .section {
+    flex-direction: column;
+    }
+    .section svg {
+    flex: none;
+    }
+}
+
+#tooltip {
+    border: 1px solid black;
+    background-color: black;
+    display: none;
+    position: absolute;
+}

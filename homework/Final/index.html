@@ -4,9 +4,66 @@
         <title>Final Data</title>
         <link rel="stylesheet" type="text/css" href="./style.css">
         <script src = "https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://unpkg.com/topojson@3"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     </head>
 
     <body>
+        <div id="banner">
+            <h1>CoronaVirus Geomap</h1>
+
+            <p>
+                Showing the worldwild information here
+            </p>
+
+            <p>
+                Created by Nicole
+            </p>
+
+            <svg id = "viz">
+                <rect id = "ocean" fill = "#000044" />
+                <g id = "map"></g>
+            </svg>
+        </div>
+
+        <div class="section">
+            <p class = "countryName">China</br></p>
+
+            <p>
+                Total Comfirmed Cases: </br>
+                Total Deaths Cases: </br>
+                Total Recovered Cases: 
+            </p>
+
+            <svg id="barchart1"></svg>
+        </div>
+        
+        <div class="section">
+            <p class = "countryName">U.S.</p>
+
+            <p>
+                Total Comfirmed Cases: </br>
+                Total Deaths Cases: </br>
+                Total Recovered Cases: 
+            </p>
+            <svg id="barchart2"></svg>
+        </div>
+
+        <div class="section">
+            <p class = "countryName">Italy</p>
+
+            <p>
+                Total Comfirmed Cases: </br>
+                Total Deaths Cases: </br>
+                Total Recovered Cases: 
+            </p>
+            <svg id="barchart2"></svg>
+        </div>
+
+        <div id="tooltip"></div>
+        <script src="./banner.js"></script>
+        <script src="./chart1.js"></script>
+
         <div id="chart"></div>
         <script src="./script.js"></script>
     </body>
