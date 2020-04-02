@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
         <title>Final Data</title>
+        <meta name="description" content="Scrollama: Sticky Side Example" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <link rel="stylesheet" type="text/css" href="./style.css">
         <script src = "https://d3js.org/d3.v4.min.js"></script>
         <script src="https://unpkg.com/topojson@3"></script>
@@ -26,7 +32,7 @@
             </svg>
         </div>
 
-        <div class="section">
+        <!-- <div class="section">
             <p class = "countryName">China</br></p>
 
             <p>
@@ -58,7 +64,52 @@
                 Total Recovered Cases: 
             </p>
             <svg id="barchart2"></svg>
-        </div>
+        </div> -->
+
+        <main>
+            <section id="intro">
+                <h1 class="intro__hed">Specific data</h1>
+                <p class="intro__dek">
+                Start scrolling to see how number changes
+                </p>
+            </section>
+        
+            <section id="scrolly">
+                <article>
+                    <div class="step" data-step="1">
+                        <p>China</p>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <p>U.S.</p>
+                    </div>
+
+                    <div class="step" data-step="3">
+                        <p>Italy</p>
+                    </div>
+                    
+                    <div class="step" data-step="4">
+                        <p>Spain</p>
+                    </div>
+                </article>
+        
+                <figure>
+                    <p>0</p>
+                </figure>
+            </section>
+        
+            <section id="outro"></section>
+
+        </main>
+
+
+        <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+        <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+        <script src="../stickyfill.min.js"></script>
+        <script src="../scrollama.min.js"></script>
+
+
+
 
         <div id="tooltip"></div>
         <script src="./banner.js"></script>
@@ -66,5 +117,7 @@
 
         <div id="chart"></div>
         <script src="./script.js"></script>
+
+
     </body>
 </html>
