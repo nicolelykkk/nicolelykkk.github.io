@@ -182,67 +182,71 @@ d3.csv("./data/COVID.csv", function(error, data) {
 
 });
 
-// var svg = d3.select("#viz")
-//         .attr("width", width)
-//         .attr("height", height);
 
-//     svg.select("#ocean")
-//     .attr("width", width)
-//     .attr("height", height);
 
-//     var map = svg.select("#map");
 
-//     var zoom = d3.zoom()
-//     .translateExtent([
-//         [0, 0],
-//         [width, height]
-//     ])
-//     .scaleExtent([1, 8])
-//     .on("zoom", zoomed);
 
-//     function zoomed() {
-//     map.attr("transform", d3.event.transform);
-//     }
+var svg = d3.select("#viz")
+        .attr("width", width)
+        .attr("height", height);
 
-//     svg.call(zoom)
-//     .on("dblclick.zoom", null);
+    svg.select("#ocean")
+    .attr("width", width)
+    .attr("height", height);
 
-//     d3.json("../topojson/world-alpha3.json", function(error, world) {
+    var map = svg.select("#map");
 
-//     var geoJSON = topojson.feature(world, world.objects.countries);
+    var zoom = d3.zoom()
+    .translateExtent([
+        [0, 0],
+        [width, height]
+    ])
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);
 
-//     geoJSON.features = geoJSON.features.filter(function(d) {
-//         return d.id !== "ATA";
-//     });
+    function zoomed() {
+    map.attr("transform", d3.event.transform);
+    }
 
-//     var projection = d3.geoMercator()
-//         .fitSize([width, height], geoJSON);
+    svg.call(zoom)
+    .on("dblclick.zoom", null);
 
-//     var path = d3.geoPath()
-//         .projection(projection);
+    d3.json("../topojson/world-alpha3.json", function(error, world) {
 
-//     var countries = map.selectAll("path")
-//         .data(geoJSON.features);
+    var geoJSON = topojson.feature(world, world.objects.countries);
 
-//     countries.enter().append("path")
-//         .attr("d", path)
-//         .attr("fill", "#004400")
-//         .attr("stroke", "#008800");
+    geoJSON.features = geoJSON.features.filter(function(d) {
+        return d.id !== "ATA";
+    });
 
-//     var points = [
-//         {"name": "Boston", "coords": [-71.0589, 42.3601]},
-//         {"name": "London", "coords": [-0.1278, 51.5074]}
-//     ];
+    var projection = d3.geoMercator()
+        .fitSize([width, height], geoJSON);
 
-//     var circles = map.selectAll("circle")
-//         .data(points);
+    var path = d3.geoPath()
+        .projection(projection);
 
-//     circles.enter().append("circle")
-//         .attr("transform", function(d) {
-//         return "translate(" + projection(d.coords) + ")";
-//         })
-//         .attr("r", 10)
-//         .attr("fill", "#cc0000");
+    var countries = map.selectAll("path")
+        .data(geoJSON.features);
 
-//     });
+    countries.enter().append("path")
+        .attr("d", path)
+        .attr("fill", "#004400")
+        .attr("stroke", "#008800");
+
+    var points = [
+        {"name": "Boston", "coords": [-71.0589, 42.3601]},
+        {"name": "London", "coords": [-0.1278, 51.5074]}
+    ];
+
+    var circles = map.selectAll("circle")
+        .data(points);
+
+    circles.enter().append("circle")
+        .attr("transform", function(d) {
+        return "translate(" + projection(d.coords) + ")";
+        })
+        .attr("r", 10)
+        .attr("fill", "#cc0000");
+
+    });
 
