@@ -234,8 +234,7 @@ var svg = d3.select("#viz")
         .attr("stroke", "#008800");
 
     var points = [
-        {"name": "Boston", "coords": [-71.0589, 42.3601]},
-        {"name": "London", "coords": [-0.1278, 51.5074]}
+        {"name": "Boston", "coords": [-71.0589, 42.3601]}
     ];
 
     var circles = map.selectAll("circle")
