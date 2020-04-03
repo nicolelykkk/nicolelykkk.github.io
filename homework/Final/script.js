@@ -184,7 +184,8 @@ d3.csv("./data/COVID.csv", function(error, data) {
 
 
 
-
+var width = document.querySelector("#banner").clientWidth;
+var height = document.querySelector("#banner").clientHeight;
 
 var svg = d3.select("#viz")
         .attr("width", width)
