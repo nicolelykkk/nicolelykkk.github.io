@@ -1,30 +1,30 @@
 // Data goes here!!!!
 
-URL = "https://api.covid19api.com/summary";
+// URL = "https://api.covid19api.com/summary";
 
-        function fetchData() {
+//         function fetchData() {
 
-            d3.json(URL, function(error, data) {
-            console.log(data);
+//             d3.json(URL, function(error, data) {
+//             console.log(data);
 
-            var data = []
-            data.push(data);
+//             var data = []
+//             data.push(data);
 
-            var dataObject = {
-                Country: country,
-                NewConfirmed: + NewConfirmed,
-                TotalConfirmed: + TotalConfirmed,
-                NewDeaths: + NewDeaths,
-                TotalDeaths: +TotalDeaths,
-                NewRecovered: + NewRecovered,
-                TotalRecovered: +TotalRecovered
-            };
+//             var dataObject = {
+//                 Country: country,
+//                 NewConfirmed: + NewConfirmed,
+//                 TotalConfirmed: + TotalConfirmed,
+//                 NewDeaths: + NewDeaths,
+//                 TotalDeaths: +TotalDeaths,
+//                 NewRecovered: + NewRecovered,
+//                 TotalRecovered: +TotalRecovered
+//             };
 
-            });
+//             });
 
-        }
+//         }
 
-        fetchData(); 
+//         fetchData(); 
 
 
 
@@ -123,7 +123,7 @@ URL = "https://api.covid19api.com/summary";
             var lineChartMargin = {top: 50, left: 100, right: 50, bottom: 50};
 
             var filtered_data = data.filter(function(d){
-                return d.Country === "China";
+                return d.State === "Hubei";
             });
 
             var lineChart = d3.select("#lineChart")
@@ -150,7 +150,7 @@ URL = "https://api.covid19api.com/summary";
                 .range([lineChartHeight-lineChartMargin.bottom, lineChartMargin.top]);
 
             var line = d3.line()
-                .x(function(d) { return xScale(d.Day); })
+                .x(function(d) { return xScale(new Date(d.Date)); })
                 .y(function(d) { return yScale(d.Confirmed); })
                 .curve(d3.curveLinear);
 
@@ -173,7 +173,7 @@ URL = "https://api.covid19api.com/summary";
             var path = lineChart.append("path")
                 .datum(filtered_data)
                 .attr("d", function(d) { return line(d); })
-                .attr("stroke","steelblue")
+                .attr("stroke","goldenrod")
                 .attr("fill","none")
                 .attr("stroke-width",2);
 

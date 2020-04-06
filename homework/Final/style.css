@@ -3,6 +3,12 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+#viz {
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
 #banner {
     background-color: white;
     background-position: 50% 100%;
@@ -15,12 +21,6 @@ body {
 
 #intro {
     text-align: center;
-}
-
-#viz {
-    top: 0;
-    left: 0;
-    position: absolute;
 }
 
     #scrolly {
