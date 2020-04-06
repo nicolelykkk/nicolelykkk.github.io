@@ -120,7 +120,7 @@ URL = "https://api.covid19api.com/summary";
 
             var lineChartWidth = document.querySelector("#lineChart").clientWidth;
             var lineChartHeight = document.querySelector("#lineChart").clientHeight;
-            var margin = {top: 50, left: 150, right: 50, bottom: 150};
+            var lineChartMargin = {top: 50, left: 100, right: 50, bottom: 50};
 
             var filtered_data = data.filter(function(d){
                 return d.Country === "China";
@@ -143,11 +143,11 @@ URL = "https://api.covid19api.com/summary";
 
             var xScale = d3.scaleLinear()
                 .domain([Day.min, Day.max])
-                .range([margin.left, lineChartWidth-margin.right]);
+                .range([lineChartMargin.left, lineChartWidth-lineChartMargin.right]);
 
             var yScale = d3.scaleLinear()
                 .domain([Confirmed.min, Confirmed.max])
-                .range([lineChartHeight-margin.bottom, margin.top]);
+                .range([lineChartHeight-lineChartMargin.bottom, lineChartMargin.top]);
 
             var line = d3.line()
                 .x(function(d) { return xScale(d.Day); })
@@ -156,12 +156,17 @@ URL = "https://api.covid19api.com/summary";
 
             var xAxis = lineChart.append("g")
                 .attr("class","axis")
-                .attr("transform", `translate(0,${lineChartHeight-margin.bottom})`)
-                .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
+                .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
+                .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
+                    // .selectAll("text") 
+                    // .style("text-anchor", "end")
+                    // .attr("dx", "-.8em")
+                    // .attr("dy", ".15em")
+                    // .attr("transform", "rotate(-65)");
 
             var yAxis = lineChart.append("g")
                 .attr("class","axis")
-                .attr("transform", `translate(${margin.left},0)`)
+                .attr("transform", `translate(${lineChartMargin.left},0)`)
                 .call(d3.axisLeft().scale(yScale));
 
 
@@ -175,14 +180,14 @@ URL = "https://api.covid19api.com/summary";
             var xAxisLabel = lineChart.append("text")
                 .attr("class","axisLabel")
                 .attr("x", lineChartWidth/2)
-                .attr("y", lineChartHeight-margin.bottom/2)
+                .attr("y", lineChartHeight-lineChartMargin.bottom/2 + 15)
                 .text("Date");
 
             var yAxisLabel = lineChart.append("text")
                 .attr("class","axisLabel")
                 .attr("transform","rotate(-90)")
-                .attr("x",-lineChartHeight/2)
-                .attr("y",margin.left/2)
+                .attr("x",-lineChartHeight/2 - 40)
+                .attr("y",lineChartMargin.left/2)
                 .text("Confirmed Numbers");
 
         });
