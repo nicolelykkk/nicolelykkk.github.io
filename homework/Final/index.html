@@ -11,12 +11,19 @@
         <link rel="stylesheet" type="text/css" href="./style.css">
         <script src = "https://d3js.org/d3.v4.min.js"></script>
         <script src="https://unpkg.com/topojson@3"></script>
+
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
         <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     </head>
 
     <body>
 
         <div id="banner">
+            <svg id = "viz">
+                <rect id = "ocean" fill = "white" />
+                <g id = "map"></g>
+            </svg>
+            
             <h1>CoronaVirus Geomap</h1>
 
             <p>
@@ -27,10 +34,7 @@
                 Created by Nicole
             </p>
 
-            <svg id = "viz">
-                <rect id = "ocean" fill = "#000044" />
-                <g id = "map"></g>
-            </svg>
+            
         </div>
 
         <!-- <div class="section">
@@ -79,6 +83,8 @@
                 <article>
                     <div class="step" data-step="1">
                         <p>China</p>
+                        <p>Coronavirus disease (COVID-19) is an infectious disease caused by a new virus.
+                            The disease causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing.</p>
                     </div>
 
                     <div class="step" data-step="2">
@@ -95,8 +101,9 @@
                 </article>
         
                 <figure>
-                    <p>0</p>
-                    <svg id="barchart1"></svg>
+                    <!-- <p>0</p> -->
+                    <svg id="lineChart"></svg>
+                    <!-- ??? -->
                 </figure>
             </section>
         
@@ -105,7 +112,7 @@
         </main>
 
 
-        <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
+        <!-- <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script> -->
         <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
         <script src="./stickyfill.min.js"></script>
         <script src="./scrollama.min.js"></script>
@@ -114,8 +121,8 @@
 
 
         <div id="tooltip"></div>
-        <script src="./banner.js"></script>
-        <script src="./chart1.js"></script>
+        <!-- <script src="./banner.js"></script> -->
+        <!-- <script src="./chart1.js"></script> -->
 
         <div id="chart"></div>
         <script src="./script.js"></script>

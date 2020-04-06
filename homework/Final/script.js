@@ -1,32 +1,34 @@
+// Data goes here!!!!
+
 URL = "https://api.covid19api.com/summary";
 
-function fetchData() {
+        function fetchData() {
 
-    d3.json(URL, function(error, data) {
-    console.log(data);
+            d3.json(URL, function(error, data) {
+            console.log(data);
 
-    var data = []
-    data.push(data);
+            var data = []
+            data.push(data);
 
-    var dataObject = {
-        Country: country,
-        NewConfirmed: + NewConfirmed,
-        TotalConfirmed: + TotalConfirmed,
-        NewDeaths: + NewDeaths,
-        TotalDeaths: +TotalDeaths,
-        NewRecovered: + NewRecovered,
-        TotalRecovered: +TotalRecovered
-    };
+            var dataObject = {
+                Country: country,
+                NewConfirmed: + NewConfirmed,
+                TotalConfirmed: + TotalConfirmed,
+                NewDeaths: + NewDeaths,
+                TotalDeaths: +TotalDeaths,
+                NewRecovered: + NewRecovered,
+                TotalRecovered: +TotalRecovered
+            };
 
-    });
+            });
 
-}
+        }
 
-fetchData(); 
-
-
+        fetchData(); 
 
 
+
+// Scrolly goes here!!!!!
 
         // using d3 for convenience
         var main = d3.select("main");
@@ -66,7 +68,9 @@ fetchData();
             });
 
             // update graphic based on step
-            figure.select("p").text(response.index + 1);
+            // figure.select("").text(response.index + 1);
+            
+
         }
 
         function setupStickyfill() {
@@ -109,144 +113,166 @@ fetchData();
 
 
 
+// Line chart will go here!!!!!!
 
-d3.csv("./data/COVID.csv", function(error, data) {
-        console.log(data);
+        d3.csv("./data/COVID.csv", function(error, data) {
+                console.log(data);
 
-    var width = document.querySelector("#barchart1").clientWidth;
-    var height = document.querySelector("#barchart1").clientHeight;
-    var margin = {top: 50, left: 150, right: 50, bottom: 150};
+            var lineChartWidth = document.querySelector("#lineChart").clientWidth;
+            var lineChartHeight = document.querySelector("#lineChart").clientHeight;
+            var margin = {top: 50, left: 150, right: 50, bottom: 150};
 
-    var filtered_data = data.filter(function(d){
-        return d.Country === "China";
-    });
+            var filtered_data = data.filter(function(d){
+                return d.Country === "China";
+            });
 
-    // var svg = d3.select("#barchart1")
-    //     .append("svg")
-    //     .attr("width", width)
-    //     .attr("height", height);
+            var lineChart = d3.select("#lineChart")
+                // .append("svg")
+                .attr("width", lineChartWidth)
+                .attr("height", lineChartHeight);
 
-    var Confirmed = {
-        min: d3.min(filtered_data, function(d) { return +d.Confirmed; }),
-        max: d3.max(filtered_data, function(d) { return +d.Confirmed; })
-    };
+            var Confirmed = {
+                min: d3.min(filtered_data, function(d) { return +d.Confirmed; }),
+                max: d3.max(filtered_data, function(d) { return +d.Confirmed; })
+            };
 
-    var Day = {
-        min: d3.min(filtered_data, function(d) { return new Date(d.Date); }),
-        max: d3.max(filtered_data, function(d) { return new Date(d.Date); })
-    };
+            var Day = {
+                min: d3.min(filtered_data, function(d) { return new Date(d.Date); }),
+                max: d3.max(filtered_data, function(d) { return new Date(d.Date); })
+            };
 
-    var xScale = d3.scaleLinear()
-        .domain([Day.min, Day.max])
-        .range([margin.left, width-margin.right]);
+            var xScale = d3.scaleLinear()
+                .domain([Day.min, Day.max])
+                .range([margin.left, lineChartWidth-margin.right]);
 
-    var yScale = d3.scaleLinear()
-        .domain([Confirmed.min, Confirmed.max])
-        .range([height-margin.bottom, margin.top]);
+            var yScale = d3.scaleLinear()
+                .domain([Confirmed.min, Confirmed.max])
+                .range([lineChartHeight-margin.bottom, margin.top]);
 
-    var line = d3.line()
-        .x(function(d) { return xScale(d.Day); })
-        .y(function(d) { return yScale(d.Confirmed); })
-        .curve(d3.curveLinear);
+            var line = d3.line()
+                .x(function(d) { return xScale(d.Day); })
+                .y(function(d) { return yScale(d.Confirmed); })
+                .curve(d3.curveLinear);
 
-    var xAxis = svg.append("g")
-        .attr("class","axis")
-        .attr("transform", `translate(0,${height-margin.bottom})`)
-        .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
+            var xAxis = lineChart.append("g")
+                .attr("class","axis")
+                .attr("transform", `translate(0,${lineChartHeight-margin.bottom})`)
+                .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
 
-    var yAxis = svg.append("g")
-        .attr("class","axis")
-        .attr("transform", `translate(${margin.left},0)`)
-        .call(d3.axisLeft().scale(yScale));
-
-
-    var path = svg.append("path")
-        .datum(filtered_data)
-        .attr("d", function(d) { return line(d); })
-        .attr("stroke","steelblue")
-        .attr("fill","none")
-        .attr("stroke-width",2);
-
-    var xAxisLabel = svg.append("text")
-        .attr("class","axisLabel")
-        .attr("x", width/2)
-        .attr("y", height-margin.bottom/2)
-        .text("Date");
-
-    var yAxisLabel = svg.append("text")
-        .attr("class","axisLabel")
-        .attr("transform","rotate(-90)")
-        .attr("x",-height/2)
-        .attr("y",margin.left/2)
-        .text("Confirmed Numbers");
-
-});
+            var yAxis = lineChart.append("g")
+                .attr("class","axis")
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft().scale(yScale));
 
 
+            var path = lineChart.append("path")
+                .datum(filtered_data)
+                .attr("d", function(d) { return line(d); })
+                .attr("stroke","steelblue")
+                .attr("fill","none")
+                .attr("stroke-width",2);
 
-var width = document.querySelector("#banner").clientWidth;
-var height = document.querySelector("#banner").clientHeight;
+            var xAxisLabel = lineChart.append("text")
+                .attr("class","axisLabel")
+                .attr("x", lineChartWidth/2)
+                .attr("y", lineChartHeight-margin.bottom/2)
+                .text("Date");
 
-var svg = d3.select("#viz")
-        .attr("width", width)
-        .attr("height", height);
+            var yAxisLabel = lineChart.append("text")
+                .attr("class","axisLabel")
+                .attr("transform","rotate(-90)")
+                .attr("x",-lineChartHeight/2)
+                .attr("y",margin.left/2)
+                .text("Confirmed Numbers");
 
-    svg.select("#ocean")
-    .attr("width", width)
-    .attr("height", height);
+        });
 
-    var map = svg.select("#map");
 
-    var zoom = d3.zoom()
-    .translateExtent([
-        [0, 0],
-        [width, height]
-    ])
-    .scaleExtent([1, 8])
-    .on("zoom", zoomed);
+// Geomap goes here!!!!!!!!
 
-    function zoomed() {
-    map.attr("transform", d3.event.transform);
-    }
+        var width = document.querySelector("#banner").clientWidth;
+        var height = document.querySelector("#banner").clientHeight;
 
-    svg.call(zoom)
-    .on("dblclick.zoom", null);
+        var svg = d3.select("#viz")
+                .attr("width", width)
+                .attr("height", height);
 
-    d3.json("../topojson/world-alpha3.json", function(error, world) {
+            svg.select("#ocean")
+                .attr("width", width)
+                .attr("height", height);
 
-    var geoJSON = topojson.feature(world, world.objects.countries);
+            var map = svg.select("#map");
 
-    geoJSON.features = geoJSON.features.filter(function(d) {
-        return d.id !== "ATA";
-    });
+            // var zoom = d3.zoom()
+            //     .translateExtent([
+            //         [0, 0],
+            //         [width, height]
+            // ])
+            //     .scaleExtent([1, 8])
+            //     .on("zoom", zoomed);
 
-    var projection = d3.geoMercator()
-        .fitSize([width, height], geoJSON);
+            // function zoomed() {
+            // map.attr("transform", d3.event.transform);
+            // }
 
-    var path = d3.geoPath()
-        .projection(projection);
+            // svg.call(zoom)
+            // .on("dblclick.zoom", null);
 
-    var countries = map.selectAll("path")
-        .data(geoJSON.features);
+            d3.json("./world-alpha3.json", function(error, world) {
 
-    countries.enter().append("path")
-        .attr("d", path)
-        .attr("fill", "#004400")
-        .attr("stroke", "#008800");
+                var geoJSON = topojson.feature(world, world.objects.countries);
 
-    var points = [
-        {"name": "Boston", "coords": [-71.0589, 42.3601]}
-    ];
+                geoJSON.features = geoJSON.features.filter(function(d) {
+                    return d.id !== "ATA";
+                });
 
-    var circles = map.selectAll("circle")
-        .data(points);
+                var projection = d3.geoMercator()
+                    .fitSize([width, height], geoJSON);
 
-    circles.enter().append("circle")
-        .attr("transform", function(d) {
-        return "translate(" + projection(d.coords) + ")";
-        })
-        .attr("r", 10)
-        .attr("fill", "#cc0000");
+                var path = d3.geoPath()
+                    .projection(projection);
 
-    });
+                console.log(geoJSON);
+                console.log(width);
+                console.log(height);
+
+                var countries = map.selectAll("path")
+                    .data(geoJSON.features);
+
+                countries.enter().append("path")
+                    .attr("d", path)
+                    .attr("fill", "white")
+                    .attr("stroke", "grey");
+
+                // var points = [
+                //     {"name": "Boston", "coords": [-71.0589, 42.3601]}
+                // ];
+
+                // var circles = map.selectAll("circle")
+                //     .data(points);
+
+                // circles.enter().append("circle")
+                //     .attr("transform", function(d) {
+                //     return "translate(" + projection(d.coords) + ")";
+                //     })
+                //     .attr("r", 10)
+                //     .attr("fill", "#cc0000");
+
+                        // The svg
+                        // var svg = d3.select("svg"),
+                        //     width = +svg.attr("width"),
+                        //     height = +svg.attr("height");
+
+                        // // Map and projection
+                        // var path = d3.geoPath();
+                        // var projection = d3.geoMercator()
+                        //     .scale(70)
+                        //     .center([0,20])
+                        //     .translate([width / 2, height / 2]);
+
+                        // Data and color scale
+                        
+
+
+            });
 
