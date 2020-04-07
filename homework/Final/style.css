@@ -11,20 +11,22 @@ body {
 
 #title {
     position: relative;
+    font-size: 25px;
 }
 
 #banner {
     background-color: white;
     background-position: 50% 100%;
     background-size: cover;
-    color:goldenrod;
-    padding: 50vh 20px;
+    color:black;
+    padding: 40vh 20px;
     text-align: center;
-    /* text-shadow: 0 0 5px black; */
+    /* text-shadow: 5px 5px 2px #33558b; */
 }
 
 #intro {
     text-align: center;
+    color: #33558b;
 }
 
     #scrolly {
@@ -56,7 +58,7 @@ body {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    background-color: lightgrey;
+    background-color: white;
     z-index: 0;
     }
 
@@ -85,8 +87,8 @@ body {
 
     .step {
         margin: 0 auto 2rem auto;
-        background-color:lightgrey;
-        color: #fff;
+        background-color: rgba(197, 197, 197, 0.3);
+        color:grey;
     }
 
     .step:last-child {
@@ -94,8 +96,8 @@ body {
     }
 
     .step.is-active {
-        background-color: goldenrod;
-        color: #3b3b3b;
+        background-color: #33558b;
+        color: white;
     }
 
     .step p {
