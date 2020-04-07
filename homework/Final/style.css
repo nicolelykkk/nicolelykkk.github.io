@@ -9,14 +9,18 @@ body {
     position: absolute;
 }
 
+#title {
+    position: relative;
+}
+
 #banner {
     background-color: white;
     background-position: 50% 100%;
     background-size: cover;
-    color:steelblue;
+    color:goldenrod;
     padding: 50vh 20px;
     text-align: center;
-    text-shadow: 0 0 5px black;
+    /* text-shadow: 0 0 5px black; */
 }
 
 #intro {

@@ -249,6 +249,8 @@
                     .attr("fill", "white")
                     .attr("stroke", "grey");
 
+
+                
                 // var points = [
                 //     {"name": "Boston", "coords": [-71.0589, 42.3601]}
                 // ];
@@ -263,7 +265,7 @@
                 //     .attr("r", 10)
                 //     .attr("fill", "#cc0000");
 
-                        // The svg
+                        // // The svg
                         // var svg = d3.select("svg"),
                         //     width = +svg.attr("width"),
                         //     height = +svg.attr("height");
@@ -275,7 +277,7 @@
                         //     .center([0,20])
                         //     .translate([width / 2, height / 2]);
 
-                        // Data and color scale
+                        // // Data and color scale
                         
 
 
