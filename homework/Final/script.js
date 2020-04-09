@@ -71,7 +71,7 @@
 
             // update graphic based on step
             // figure.select("").text(response.index + 1);
-            // figure.select("svg").updateLineChart1(response.index);
+            // figure.select("svg").updateLineChart1(response.index);!!!
 
 
         }
@@ -170,7 +170,7 @@
             var path = lineChart.append("path")
                 .datum(filtered_data)
                 .attr("d", function(d) { return line(d); })
-                .attr("stroke","#33558b")
+                .attr("stroke","red")
                 .attr("fill","none")
                 .attr("stroke-width",2);
 
@@ -186,80 +186,144 @@
                 .attr("x",-lineChartHeight/2 - 40)
                 .attr("y",lineChartMargin.left/2)
                 .text("Confirmed Numbers");
+
+// second line chart will go here!
+
+    var filtered_data1 = data.filter(function(d){
+        return d.Country === "Italy";
+    });
+
+    var lineChart1 = d3.select("#lineChart")
+        // .append("svg")
+        .attr("width", lineChartWidth)
+        .attr("height", lineChartHeight);
+
+    var Confirmed1 = {
+        min: d3.min(filtered_data1, function(d) { return +d.Confirmed; }),
+        max: d3.max(filtered_data1, function(d) { return +d.Confirmed; })
+    };
+
+    var Day = {
+        min: d3.min(filtered_data1, function(d) { return new Date(d.Date); }),
+        max: d3.max(filtered_data1, function(d) { return new Date(d.Date); })
+    };
+
+    var line = d3.line()
+        .x(function(d) { return xScale(new Date(d.Date)); })
+        .y(function(d) { return yScale(d.Confirmed); })
+        .curve(d3.curveLinear);
+
+    var xAxis = lineChart1.append("g")
+        .attr("class","axis")
+        .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
+        .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
+
+    var yAxis = lineChart1.append("g")
+        .attr("class","axis")
+        .attr("transform", `translate(${lineChartMargin.left},0)`)
+        .call(d3.axisLeft().scale(yScale));
+
+    var path = lineChart1.append("path")
+        .datum(filtered_data1)
+        .attr("d", function(d) { return line(d); })
+        .attr("stroke","green")
+        .attr("fill","none")
+        .attr("stroke-width",2);
+
+// third line chart will go here!
+
+        var filtered_data1 = data.filter(function(d){
+            return d.Country === "Spain";
+        });
+
+        var lineChart2 = d3.select("#lineChart")
+            // .append("svg")
+            .attr("width", lineChartWidth)
+            .attr("height", lineChartHeight);
+
+        var Confirmed1 = {
+            min: d3.min(filtered_data1, function(d) { return +d.Confirmed; }),
+            max: d3.max(filtered_data1, function(d) { return +d.Confirmed; })
+        };
+
+        var Day = {
+            min: d3.min(filtered_data1, function(d) { return new Date(d.Date); }),
+            max: d3.max(filtered_data1, function(d) { return new Date(d.Date); })
+        };
+
+        var line = d3.line()
+            .x(function(d) { return xScale(new Date(d.Date)); })
+            .y(function(d) { return yScale(d.Confirmed); })
+            .curve(d3.curveLinear);
+
+        var xAxis = lineChart2.append("g")
+            .attr("class","axis")
+            .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
+            .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
+
+        var yAxis = lineChart2.append("g")
+            .attr("class","axis")
+            .attr("transform", `translate(${lineChartMargin.left},0)`)
+            .call(d3.axisLeft().scale(yScale));
+
+        var path = lineChart2.append("path")
+            .datum(filtered_data1)
+            .attr("d", function(d) { return line(d); })
+            .attr("stroke","purple")
+            .attr("fill","none")
+            .attr("stroke-width",2);
+
+// forth line chart will go here!
+
+        var filtered_data1 = data.filter(function(d){
+            return d.Country === "Spain";
+        });
+
+        var lineChart2 = d3.select("#lineChart")
+            // .append("svg")
+            .attr("width", lineChartWidth)
+            .attr("height", lineChartHeight);
+
+        var Confirmed1 = {
+            min: d3.min(filtered_data1, function(d) { return +d.Confirmed; }),
+            max: d3.max(filtered_data1, function(d) { return +d.Confirmed; })
+        };
+
+        var Day = {
+            min: d3.min(filtered_data1, function(d) { return new Date(d.Date); }),
+            max: d3.max(filtered_data1, function(d) { return new Date(d.Date); })
+        };
+
+        var line = d3.line()
+            .x(function(d) { return xScale(new Date(d.Date)); })
+            .y(function(d) { return yScale(d.Confirmed); })
+            .curve(d3.curveLinear);
+
+        var xAxis = lineChart2.append("g")
+            .attr("class","axis")
+            .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
+            .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
+
+        var yAxis = lineChart2.append("g")
+            .attr("class","axis")
+            .attr("transform", `translate(${lineChartMargin.left},0)`)
+            .call(d3.axisLeft().scale(yScale));
+
+        var path = lineChart2.append("path")
+            .datum(filtered_data1)
+            .attr("d", function(d) { return line(d); })
+            .attr("stroke","purple")
+            .attr("fill","none")
+            .attr("stroke-width",2);
+
+
+
 
         });
 
 
 
-// second line chart will go here!
-        function updateLineChart1() {
 
-            var lineChartWidth = document.querySelector("#lineChart").clientWidth;
-            var lineChartHeight = document.querySelector("#lineChart").clientHeight;
-            var lineChartMargin = {top: 50, left: 100, right: 50, bottom: 50};
-
-            var filtered_data1 = data.filter(function(d){
-                return d.Country === "Italy";
-            });
-
-            var lineChart = d3.select("#lineChart")
-                // .append("svg")
-                .attr("width", lineChartWidth)
-                .attr("height", lineChartHeight);
-
-            var Confirmed1 = {
-                min: d3.min(filtered_data1, function(d) { return +d.Confirmed; }),
-                max: d3.max(filtered_data1, function(d) { return +d.Confirmed; })
-            };
-
-            var Day = {
-                min: d3.min(filtered_data1, function(d) { return new Date(d.Date); }),
-                max: d3.max(filtered_data1, function(d) { return new Date(d.Date); })
-            };
-
-            var xScale = d3.scaleLinear()
-                .domain([Day.min, Day.max])
-                .range([lineChartMargin.left, lineChartWidth-lineChartMargin.right]);
-
-            var yScale = d3.scaleLinear()
-                .domain([Confirmed1.min, Confirmed1.max])
-                .range([lineChartHeight-lineChartMargin.bottom, lineChartMargin.top]);
-
-            var line = d3.line()
-                .x(function(d) { return xScale(new Date(d.Date)); })
-                .y(function(d) { return yScale(d.Confirmed); })
-                .curve(d3.curveLinear);
-
-            var xAxis = lineChart.append("g")
-                .attr("class","axis")
-                .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
-                .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
-
-            var yAxis = lineChart.append("g")
-                .attr("class","axis")
-                .attr("transform", `translate(${lineChartMargin.left},0)`)
-                .call(d3.axisLeft().scale(yScale));
-
-            var path = lineChart.append("path")
-                .datum(filtered_data1)
-                .attr("d", function(d) { return line(d); })
-                .attr("stroke","#33558b")
-                .attr("fill","none")
-                .attr("stroke-width",2);
-
-            var xAxisLabel = lineChart.append("text")
-                .attr("class","axisLabel")
-                .attr("x", lineChartWidth/2)
-                .attr("y", lineChartHeight-lineChartMargin.bottom/2 + 15)
-                .text("Date");
-
-            var yAxisLabel = lineChart.append("text")
-                .attr("class","axisLabel")
-                .attr("transform","rotate(-90)")
-                .attr("x",-lineChartHeight/2 - 40)
-                .attr("y",lineChartMargin.left/2)
-                .text("Confirmed Numbers");
-        };
 
 
 
