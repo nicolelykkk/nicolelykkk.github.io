@@ -276,10 +276,10 @@
 // forth line chart will go here!
 
         var filtered_data1 = data.filter(function(d){
-            return d.Country === "Spain";
+            return d.Country === "US";
         });
 
-        var lineChart2 = d3.select("#lineChart")
+        var lineChart3 = d3.select("#lineChart")
             // .append("svg")
             .attr("width", lineChartWidth)
             .attr("height", lineChartHeight);
@@ -299,20 +299,20 @@
             .y(function(d) { return yScale(d.Confirmed); })
             .curve(d3.curveLinear);
 
-        var xAxis = lineChart2.append("g")
+        var xAxis = lineChart3.append("g")
             .attr("class","axis")
             .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
             .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
 
-        var yAxis = lineChart2.append("g")
+        var yAxis = lineChart3.append("g")
             .attr("class","axis")
             .attr("transform", `translate(${lineChartMargin.left},0)`)
             .call(d3.axisLeft().scale(yScale));
 
-        var path = lineChart2.append("path")
+        var path = lineChart3.append("path")
             .datum(filtered_data1)
             .attr("d", function(d) { return line(d); })
-            .attr("stroke","purple")
+            .attr("stroke","blue")
             .attr("fill","none")
             .attr("stroke-width",2);
 
