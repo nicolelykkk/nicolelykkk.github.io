@@ -117,7 +117,7 @@
 
 
 // First line chart goes here!!!!!!
-        d3.csv("./data/COVID.csv", function(error, data) {
+        d3.csv("./data/COVID1.csv", function(error, data) {
                 console.log(data);
 
             var lineChartWidth = document.querySelector("#lineChart").clientWidth;
@@ -125,7 +125,7 @@
             var lineChartMargin = {top: 50, left: 100, right: 50, bottom: 50};
 
             var filtered_data = data.filter(function(d){
-                return d.State === "Hubei";
+                return d.Entity === "Asia excl. China";
             });
 
             var lineChart = d3.select("#lineChart")
@@ -190,7 +190,7 @@
 // second line chart will go here!
 
     var filtered_data1 = data.filter(function(d){
-        return d.Country === "Italy";
+        return d.Entity === "Italy";
     });
 
     var lineChart1 = d3.select("#lineChart")
@@ -233,7 +233,7 @@
 // third line chart will go here!
 
         var filtered_data1 = data.filter(function(d){
-            return d.Country === "Spain";
+            return d.Entity === "Spain";
         });
 
         var lineChart2 = d3.select("#lineChart")
@@ -276,7 +276,7 @@
 // forth line chart will go here!
 
         var filtered_data1 = data.filter(function(d){
-            return d.Country === "US";
+            return d.Entity === "United States";
         });
 
         var lineChart3 = d3.select("#lineChart")
