@@ -70,8 +70,18 @@
             });
 
             // update graphic based on step
-            // figure.select("").text(response.index + 1);
-            // figure.select("svg").updateLineChart1(response.index);!!!
+            if (response.index === 0){
+                drawLineChart("Asia excl. China")
+            } 
+            if (response.index === 1){
+                drawLineChart("United States")
+            } 
+            if (response.index === 2){
+                drawLineChart("Italy")
+            } 
+            if (response.index === 3){
+                drawLineChart("Spain")
+            };
 
 
         }
@@ -104,7 +114,7 @@
         }
 
         // kick things off
-        init();
+        
 
 
 
@@ -115,17 +125,32 @@
 
 
 
+        var fullData;
 
 // First line chart goes here!!!!!!
         d3.csv("./data/COVID1.csv", function(error, data) {
                 console.log(data);
 
+            fullData = data;
+
+            init();
+
+
+
+
+        });
+
+
+
+        function drawLineChart(country) {
+
+
             var lineChartWidth = document.querySelector("#lineChart").clientWidth;
             var lineChartHeight = document.querySelector("#lineChart").clientHeight;
             var lineChartMargin = {top: 50, left: 100, right: 50, bottom: 50};
 
-            var filtered_data = data.filter(function(d){
-                return d.Entity === "Asia excl. China";
+            var filtered_data = fullData.filter(function(d){
+                return d.Entity === country;
             });
 
             var lineChart = d3.select("#lineChart")
@@ -156,21 +181,20 @@
                 .y(function(d) { return yScale(d.Confirmed); })
                 .curve(d3.curveLinear);
 
-            var xAxis = lineChart.append("g")
+            var xAxis = lineChart.select("#xAxis")
                 .attr("class","axis")
                 .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
                 .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
 
-            var yAxis = lineChart.append("g")
+            var yAxis = lineChart.select("#yAxis")
                 .attr("class","axis")
                 .attr("transform", `translate(${lineChartMargin.left},0)`)
                 .call(d3.axisLeft().scale(yScale));
 
-
             var path = lineChart.append("path")
                 .datum(filtered_data)
                 .attr("d", function(d) { return line(d); })
-                .attr("stroke","red")
+                .attr("stroke","#33558b")
                 .attr("fill","none")
                 .attr("stroke-width",2);
 
@@ -186,144 +210,7 @@
                 .attr("x",-lineChartHeight/2 - 40)
                 .attr("y",lineChartMargin.left/2)
                 .text("Confirmed Numbers");
-
-// second line chart will go here!
-
-    var filtered_data1 = data.filter(function(d){
-        return d.Entity === "Italy";
-    });
-
-    var lineChart1 = d3.select("#lineChart")
-        // .append("svg")
-        .attr("width", lineChartWidth)
-        .attr("height", lineChartHeight);
-
-    var Confirmed1 = {
-        min: d3.min(filtered_data1, function(d) { return +d.Confirmed; }),
-        max: d3.max(filtered_data1, function(d) { return +d.Confirmed; })
-    };
-
-    var Day = {
-        min: d3.min(filtered_data1, function(d) { return new Date(d.Date); }),
-        max: d3.max(filtered_data1, function(d) { return new Date(d.Date); })
-    };
-
-    var line = d3.line()
-        .x(function(d) { return xScale(new Date(d.Date)); })
-        .y(function(d) { return yScale(d.Confirmed); })
-        .curve(d3.curveLinear);
-
-    var xAxis = lineChart1.append("g")
-        .attr("class","axis")
-        .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
-        .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
-
-    var yAxis = lineChart1.append("g")
-        .attr("class","axis")
-        .attr("transform", `translate(${lineChartMargin.left},0)`)
-        .call(d3.axisLeft().scale(yScale));
-
-    var path = lineChart1.append("path")
-        .datum(filtered_data1)
-        .attr("d", function(d) { return line(d); })
-        .attr("stroke","green")
-        .attr("fill","none")
-        .attr("stroke-width",2);
-
-// third line chart will go here!
-
-        var filtered_data1 = data.filter(function(d){
-            return d.Entity === "Spain";
-        });
-
-        var lineChart2 = d3.select("#lineChart")
-            // .append("svg")
-            .attr("width", lineChartWidth)
-            .attr("height", lineChartHeight);
-
-        var Confirmed1 = {
-            min: d3.min(filtered_data1, function(d) { return +d.Confirmed; }),
-            max: d3.max(filtered_data1, function(d) { return +d.Confirmed; })
-        };
-
-        var Day = {
-            min: d3.min(filtered_data1, function(d) { return new Date(d.Date); }),
-            max: d3.max(filtered_data1, function(d) { return new Date(d.Date); })
-        };
-
-        var line = d3.line()
-            .x(function(d) { return xScale(new Date(d.Date)); })
-            .y(function(d) { return yScale(d.Confirmed); })
-            .curve(d3.curveLinear);
-
-        var xAxis = lineChart2.append("g")
-            .attr("class","axis")
-            .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
-            .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
-
-        var yAxis = lineChart2.append("g")
-            .attr("class","axis")
-            .attr("transform", `translate(${lineChartMargin.left},0)`)
-            .call(d3.axisLeft().scale(yScale));
-
-        var path = lineChart2.append("path")
-            .datum(filtered_data1)
-            .attr("d", function(d) { return line(d); })
-            .attr("stroke","purple")
-            .attr("fill","none")
-            .attr("stroke-width",2);
-
-// forth line chart will go here!
-
-        var filtered_data1 = data.filter(function(d){
-            return d.Entity === "United States";
-        });
-
-        var lineChart3 = d3.select("#lineChart")
-            // .append("svg")
-            .attr("width", lineChartWidth)
-            .attr("height", lineChartHeight);
-
-        var Confirmed1 = {
-            min: d3.min(filtered_data1, function(d) { return +d.Confirmed; }),
-            max: d3.max(filtered_data1, function(d) { return +d.Confirmed; })
-        };
-
-        var Day = {
-            min: d3.min(filtered_data1, function(d) { return new Date(d.Date); }),
-            max: d3.max(filtered_data1, function(d) { return new Date(d.Date); })
-        };
-
-        var line = d3.line()
-            .x(function(d) { return xScale(new Date(d.Date)); })
-            .y(function(d) { return yScale(d.Confirmed); })
-            .curve(d3.curveLinear);
-
-        var xAxis = lineChart3.append("g")
-            .attr("class","axis")
-            .attr("transform", `translate(0,${lineChartHeight-lineChartMargin.bottom})`)
-            .call(d3.axisBottom().scale(xScale).tickFormat(d3.timeFormat("%Y-%m-%d")));
-
-        var yAxis = lineChart3.append("g")
-            .attr("class","axis")
-            .attr("transform", `translate(${lineChartMargin.left},0)`)
-            .call(d3.axisLeft().scale(yScale));
-
-        var path = lineChart3.append("path")
-            .datum(filtered_data1)
-            .attr("d", function(d) { return line(d); })
-            .attr("stroke","blue")
-            .attr("fill","none")
-            .attr("stroke-width",2);
-
-
-
-
-        });
-
-
-
-
+};
 
 
 
