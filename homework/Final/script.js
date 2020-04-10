@@ -114,7 +114,7 @@
         }
 
         // kick things off
-        
+        // init();
 
 
 
@@ -127,7 +127,6 @@
 
         var fullData;
 
-// First line chart goes here!!!!!!
         d3.csv("./data/COVID1.csv", function(error, data) {
                 console.log(data);
 
@@ -189,14 +188,17 @@
             var yAxis = lineChart.select("#yAxis")
                 .attr("class","axis")
                 .attr("transform", `translate(${lineChartMargin.left},0)`)
+                .transition()
+                .duration(500)
+                .delay(200)
                 .call(d3.axisLeft().scale(yScale));
 
-            var path = lineChart.append("path")
-                .datum(filtered_data)
-                .attr("d", function(d) { return line(d); })
-                .attr("stroke","#33558b")
-                .attr("fill","none")
-                .attr("stroke-width",2);
+            // var path = lineChart.append("path")
+            //     .datum(filtered_data)
+            //     .attr("d", function(d) { return line(d); })
+            //     .attr("stroke","#33558b")
+            //     .attr("fill","none")
+            //     .attr("stroke-width",2);
 
             var xAxisLabel = lineChart.append("text")
                 .attr("class","axisLabel")
@@ -210,6 +212,30 @@
                 .attr("x",-lineChartHeight/2 - 40)
                 .attr("y",lineChartMargin.left/2)
                 .text("Confirmed Numbers");
+
+            var u = lineChart.selectAll(".lineTest")
+                .data([filtered_data]);
+
+            // var path = d3.line()
+            //     .x(function(d) { return xScale(new Date(d.Date)); })
+            //     .y(function(d) { return yScale(d.Confirmed); })
+
+            u.enter().append("path")
+                .attr("class","lineTest")
+                .merge(u)
+                .transition()
+                .duration(1000)
+            .attr("d", line)
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 2.5)
+            console.log("hello");
+
+            u.exit()
+                .transition()
+                .duration(1000)
+                .remove();
+
 };
 
 

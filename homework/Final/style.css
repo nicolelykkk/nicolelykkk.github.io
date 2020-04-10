@@ -96,11 +96,14 @@ body {
     }
 
     .step.is-active {
+        transition-delay: 200ms;
+        transition-duration: 200ms;
         background-color: #33558b;
         color: white;
     }
 
     .step p {
+        transition-duration: 5ms;
         text-align: left;
         padding: 1rem;
         font-size: 12pt;
