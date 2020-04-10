@@ -209,8 +209,8 @@
             var yAxisLabel = lineChart.append("text")
                 .attr("class","axisLabel")
                 .attr("transform","rotate(-90)")
-                .attr("x",-lineChartHeight/2 - 40)
-                .attr("y",lineChartMargin.left/2)
+                .attr("x",-lineChartHeight/2 - 50)
+                .attr("y",lineChartMargin.left/2 - 10)
                 .text("Confirmed Numbers");
 
             var u = lineChart.selectAll(".lineTest")
@@ -222,7 +222,7 @@
 
             u.enter().append("path")
                 .attr("class","lineTest")
-                .merge(u)
+            .merge(u)
                 .transition()
                 .duration(1000)
             .attr("d", line)

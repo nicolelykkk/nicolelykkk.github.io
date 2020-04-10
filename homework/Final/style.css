@@ -132,6 +132,33 @@ body {
     margin: 20px;
 } */
 
+#pinup {
+    margin-top: 0px;
+    margin-left: 100px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    font-size: 10px;
+}
+
+a:link {
+    text-decoration: underline;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color:#33558b;
+}
+a:active {
+    color: black;
+}
+
+#footer {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
     .section {
     flex-direction: column;
