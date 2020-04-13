@@ -2,8 +2,6 @@
 
 URL = "https://api.covid19api.com/summary";
 
-// Geomap goes here!!!!!!!!
-
 var width = document.querySelector("#banner").clientWidth;
 var height = document.querySelector("#banner").clientHeight;
 
@@ -46,7 +44,7 @@ var svg = d3.select("#viz")
                     .attr("transform", "translate(" + legendX + ", " + legendY + ")");
 
 
-    var map = svg.select("#map");
+var map = svg.select("#map");
     
     function fetchData() {
 
@@ -123,9 +121,9 @@ var svg = d3.select("#viz")
                 var path = d3.geoPath()
                     .projection(projection);
 
-                console.log(geoJSON);
-                console.log(width);
-                console.log(height);
+                // console.log(geoJSON);
+                // console.log(width);
+                // console.log(height);
 
                 var countries = map.selectAll("path")
                     .data(geoJSON.features);
