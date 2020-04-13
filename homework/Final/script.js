@@ -1,30 +1,183 @@
 // Data goes here!!!!
 
-// URL = "https://api.covid19api.com/summary";
+URL = "https://api.covid19api.com/summary";
 
-//         function fetchData() {
+// Geomap goes here!!!!!!!!
 
-//             d3.json(URL, function(error, data) {
-//             console.log(data);
+var width = document.querySelector("#banner").clientWidth;
+var height = document.querySelector("#banner").clientHeight;
 
-//             var data = []
-//             data.push(data);
+var svg = d3.select("#viz")
+        .attr("width", width)
+        .attr("height", height);
 
-//             var dataObject = {
-//                 Country: country,
-//                 NewConfirmed: + NewConfirmed,
-//                 TotalConfirmed: + TotalConfirmed,
-//                 NewDeaths: + NewDeaths,
-//                 TotalDeaths: +TotalDeaths,
-//                 NewRecovered: + NewRecovered,
-//                 TotalRecovered: +TotalRecovered
-//             };
+    svg.select("#ocean")
+        .attr("width", width)
+        .attr("height", height);
 
-//             });
+                var margin = {
+                top: 20,
+                right: 150,
+                bottom: 100,
+                left: 50
+                };
 
-//         }
+                var chartWidth = width - margin.left - margin.right;
+                var chartHeight = height - margin.top - margin.bottom;
 
-//         fetchData(); 
+                var scaleWidth = 300;
+                var scaleHeight = 20;
+                var scaleX = margin.left + chartWidth / 2 - (scaleWidth / 2);
+                var scaleY = margin.top + chartHeight + 40;
+                
+                var scale = svg.select("#scale")
+                .attr("transform", "translate(" + scaleX + ", " + scaleY + ")");
+                
+                scale.select("#scaleRect")
+                .attr("width", scaleWidth)
+                .attr("height", scaleHeight);
+
+                var legendX = margin.left + chartWidth;
+                var legendY = margin.top;
+                var legendSize = 20;
+                var legendPadding = 10;
+
+                var legend = svg.select("#legend")
+                    .attr("transform", "translate(" + legendX + ", " + legendY + ")");
+
+
+    var map = svg.select("#map");
+    
+    function fetchData() {
+
+        d3.json(URL, function(error, Numbers) {
+        console.log(Numbers);
+
+            var Numbers = []
+            Numbers.push(Numbers);
+
+            d3.json("./world-alpha3.json", function(error, world) {
+
+                var countriesColor = d3.scaleSequential(d3.interpolatePlasma)
+                    .domain([0, 10]);
+
+                var legendRects = legend.selectAll("rect")
+                    .data(Numbers);
+
+                var legendRectsEnter = legendRects.enter().append("rect");
+
+                legendRects.merge(legendRectsEnter)
+                    .attr("x", legendPadding)
+                    .attr("y", function(d, i) {
+                    return i * legendSize + i * legendPadding;
+                    })
+                    .attr("width", legendSize)
+                    .attr("height", legendSize)
+                    .attr("fill", countriesColor);
+
+                var legendTexts = legend.selectAll("text")
+                    .data(Numbers);
+
+                var legendTextsEnter = legendTexts.enter().append("text")
+                    .attr("baseline-shift", "-100%");
+
+                legendTexts.merge(legendTextsEnter)
+                    .attr("x", legendPadding + legendSize + legendPadding / 2)
+                    .attr("y", function(d, i) {
+                    return i * legendSize + i * legendPadding;
+                    })
+                    .text(function(d) {
+                    return d;
+                    });
+
+                // svg.select("#colorGradient").selectAll("stop")
+                //     .data(stops).enter().append("stop")
+                //     .attr("offset", function(d) {
+                //         return d * 100 + "%";
+                //     })
+                //     .attr("stop-color", function(d) {
+                //         return barColor(d * maximum);
+                //     });
+
+                var gradientScale = d3.scaleLinear()
+                    .domain([0, 10])
+                    .range([0, scaleWidth]);
+
+                var gradientAxis = d3.axisBottom(gradientScale);
+
+                scale.select("#scaleAxis")
+                    .attr("transform", "translate(0, " + scaleHeight + ")")
+                    .transition()
+                    .call(gradientAxis);
+
+
+                var geoJSON = topojson.feature(world, world.objects.countries);
+
+                geoJSON.features = geoJSON.features.filter(function(d) {
+                    return d.id !== "ATA";
+                });
+
+                var projection = d3.geoMercator()
+                    .fitSize([width, height], geoJSON);
+
+                var path = d3.geoPath()
+                    .projection(projection);
+
+                console.log(geoJSON);
+                console.log(width);
+                console.log(height);
+
+                var countries = map.selectAll("path")
+                    .data(geoJSON.features);
+
+                countries.enter().append("path")
+                    .attr("d", path)
+                    .attr("fill", function(d) {
+                        return countriesColor(d.users);
+                    })
+                    .attr("stroke", "grey");
+
+                // var points = [
+                //     {"name": "Boston", "coords": [-71.0589, 42.3601]}
+                // ];
+
+                // var circles = map.selectAll("circle")
+                //     .data(points);
+
+                // circles.enter().append("circle")
+                //     .attr("transform", function(d) {
+                //     return "translate(" + projection(d.coords) + ")";
+                //     })
+                //     .attr("r", 10)
+                //     .attr("fill", "#33558b");
+
+                        // // The svg
+                        // var svg = d3.select("svg"),
+                        //     width = +svg.attr("width"),
+                        //     height = +svg.attr("height");
+
+                        // // Map and projection
+                        // var path = d3.geoPath();
+                        // var projection = d3.geoMercator()
+                        //     .scale(70)
+                        //     .center([0,20])
+                        //     .translate([width / 2, height / 2]);
+
+                        // // Data and color scale
+                    
+
+
+            });
+                    
+
+        });
+
+
+        
+
+        }
+
+        fetchData(); 
 
 
 
@@ -240,91 +393,5 @@
 
 
 
-// Geomap goes here!!!!!!!!
 
-        var width = document.querySelector("#banner").clientWidth;
-        var height = document.querySelector("#banner").clientHeight;
-
-        var svg = d3.select("#viz")
-                .attr("width", width)
-                .attr("height", height);
-
-            svg.select("#ocean")
-                .attr("width", width)
-                .attr("height", height);
-
-            var map = svg.select("#map");
-
-            // var zoom = d3.zoom()
-            //     .translateExtent([
-            //         [0, 0],
-            //         [width, height]
-            // ])
-            //     .scaleExtent([1, 8])
-            //     .on("zoom", zoomed);
-
-            // function zoomed() {
-            // map.attr("transform", d3.event.transform);
-            // }
-
-            // svg.call(zoom)
-            // .on("dblclick.zoom", null);
-
-            d3.json("./world-alpha3.json", function(error, world) {
-
-                var geoJSON = topojson.feature(world, world.objects.countries);
-
-                geoJSON.features = geoJSON.features.filter(function(d) {
-                    return d.id !== "ATA";
-                });
-
-                var projection = d3.geoMercator()
-                    .fitSize([width, height], geoJSON);
-
-                var path = d3.geoPath()
-                    .projection(projection);
-
-                console.log(geoJSON);
-                console.log(width);
-                console.log(height);
-
-                var countries = map.selectAll("path")
-                    .data(geoJSON.features);
-
-                countries.enter().append("path")
-                    .attr("d", path)
-                    .attr("fill", "white")
-                    .attr("stroke", "grey");
-
-                var points = [
-                    {"name": "Boston", "coords": [-71.0589, 42.3601]}
-                ];
-
-                var circles = map.selectAll("circle")
-                    .data(points);
-
-                circles.enter().append("circle")
-                    .attr("transform", function(d) {
-                    return "translate(" + projection(d.coords) + ")";
-                    })
-                    .attr("r", 10)
-                    .attr("fill", "#33558b");
-
-                        // // The svg
-                        // var svg = d3.select("svg"),
-                        //     width = +svg.attr("width"),
-                        //     height = +svg.attr("height");
-
-                        // // Map and projection
-                        // var path = d3.geoPath();
-                        // var projection = d3.geoMercator()
-                        //     .scale(70)
-                        //     .center([0,20])
-                        //     .translate([width / 2, height / 2]);
-
-                        // // Data and color scale
-                        
-
-
-            });
 

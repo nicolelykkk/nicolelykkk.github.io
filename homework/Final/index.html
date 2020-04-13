@@ -20,25 +20,25 @@
 
         <div id="banner">
 
-                    <!-- <svg>
-                        <defs>
-                            <linearGradient id="colorGradient">
-                            <stop offset="0%" stop-color="green" />
-                            <stop offset="100%" stop-color="red" />
-                            </linearGradient>
-                        </defs>
-                        <rect fill="url(#colorGradient)" />
-                    </svg> -->
-
             <svg id = "viz">
+                <defs>
+                    <linearGradient id="colorGradient">
+                    <stop offset="0%" stop-color="green" />
+                    <stop offset="100%" stop-color="red" />
+                    </linearGradient>
+                </defs>
+                <rect fill="url(#colorGradient)" />
+
                 <rect id = "ocean" fill = "white" />
                 <g id = "map"></g>
+
+                <g id="scale">
+                    <rect id="scaleRect" fill="url(#colorGradient)" />
+                    <g id="scaleAxis"></g>
+                </g>
             </svg>
             
-                    <!-- <g id="scale">
-                        <rect id="scaleRect" fill="url(#colorGradient)" />
-                        <g id="scaleAxis"></g>
-                    </g> -->
+                    
 
             <div id = "title">
                 <h1>CoronaVirus Geomap</h1>
@@ -54,40 +54,6 @@
             </div>
             
         </div>
-
-        <!-- <div class="section">
-            <p class = "countryName">China</br></p>
-
-            <p>
-                Total Comfirmed Cases: </br>
-                Total Deaths Cases: </br>
-                Total Recovered Cases: 
-            </p>
-
-            <svg id="barchart1"></svg>
-        </div>
-        
-        <div class="section">
-            <p class = "countryName">U.S.</p>
-
-            <p>
-                Total Comfirmed Cases: </br>
-                Total Deaths Cases: </br>
-                Total Recovered Cases: 
-            </p>
-            <svg id="barchart2"></svg>
-        </div>
-
-        <div class="section">
-            <p class = "countryName">Italy</p>
-
-            <p>
-                Total Comfirmed Cases: </br>
-                Total Deaths Cases: </br>
-                Total Recovered Cases: 
-            </p>
-            <svg id="barchart2"></svg>
-        </div> -->
 
         <main>
             <!-- <section id="intro">
@@ -124,7 +90,6 @@
                 </article>
         
                 <figure>
-                    <!-- <p>0</p> -->
                     <svg id="lineChart">
                         <g id = "xAxis"></g>
                         <g id = "yAxis"></g>
