@@ -12,7 +12,7 @@ body {
 #title {
     position: relative;
     font-size: 25px;
-    color: #33558b;
+    color: black;
 }
 
 #banner {
@@ -22,7 +22,7 @@ body {
     color:black;
     padding: 40vh 20px;
     text-align: center;
-    /* text-shadow: 5px 5px 2px #33558b; */
+    /* text-shadow: 2px 2px 5px white; */
 }
 
 #intro {
@@ -62,6 +62,7 @@ body {
     background-color: white;
     z-index: 0;
     }
+
 
     figure svg {
     width: 100%;

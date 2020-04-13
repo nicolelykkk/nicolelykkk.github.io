@@ -130,10 +130,11 @@ var map = svg.select("#map");
 
                 countries.enter().append("path")
                     .attr("d", path)
-                    .attr("fill", function(d) {
-                        console.log(d);
-                        return countriesColor(d.name);
-                    })
+                    // .attr("fill", function(d) {
+                    //     console.log(d);
+                    //     return countriesColor(d.name);
+                    // })
+                    .attr("fill", "#33558b")
                     .attr("stroke", "grey");
 
                 // var points = [
