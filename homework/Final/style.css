@@ -12,6 +12,7 @@ body {
 #title {
     position: relative;
     font-size: 25px;
+    color: #33558b;
 }
 
 #banner {
@@ -168,9 +169,16 @@ a:active {
     }
 }
 
-#tooltip {
-    border: 1px solid black;
-    background-color: black;
-    display: none;
-    position: absolute;
+
+.tooltip {
+    position: absolute; 
+    left: 0px;
+    top: 0px;
+    visibility: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16pt;
+    background-color:rgba(246,201,0,0.4);
+    padding: 2px;
+    pointer-events: none; 
 }
