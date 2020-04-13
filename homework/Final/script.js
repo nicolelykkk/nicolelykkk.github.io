@@ -388,67 +388,38 @@ var map = svg.select("#map");
                 .duration(1000)
                 .remove();
 
-            var circle = svg.selectAll(".circle")
-                .data([filtered_data])
-                .enter()
-                .append("circle")
-                    .attr("class","circle")
-                    .attr("cx", function(d) { return xScale(new Date(d.Date)); })
-                    .attr("cy", function(d) { return yScale(d.Confirmed); })
-                    .attr("r", 3)
-                    .attr("fill", "#CC0000");
+            // var circle = svg.selectAll(".circle")
+            //     .data([filtered_data])
+            //     .enter()
+            //     .append("circle")
+            //         .attr("class","circle")
+            //         .attr("cx", function(d) { return xScale(new Date(d.Date)); })
+            //         .attr("cy", function(d) { return yScale(d.Confirmed); })
+            //         .attr("r", 3)
+            //         .attr("fill", "#CC0000");
 
-            var c =svg.selectAll(".circle")
-                    .data([filtered_data]);
+            // var c =svg.selectAll(".circle")
+            //         .data([filtered_data]);
 
-                c.enter().append("circle")
-                    .attr("class","circle")
-                    .attr("cx", function(d) { return xScale(new Date(d.Date)); })
-                    .attr("cy", function(d) { return yScale(d.Confirmed); })
-                    .attr("r", 5)
-                    .attr("fill", "#CC0000")
-                .merge(c)
-                    .transition()
-                    .delay(200)
-                    .duration(1000)
-                    .attr("cx", function(d) { return xScale(new Date(d.Date));})
-                    .attr("cy", function(d) { return yScale(d.Confirmed); })        
-                    .attr("fill", "#CC0000");
+            //     c.enter().append("circle")
+            //         .attr("class","circle")
+            //         .attr("cx", function(d) { return xScale(new Date(d.Date)); })
+            //         .attr("cy", function(d) { return yScale(d.Confirmed); })
+            //         .attr("r", 5)
+            //         .attr("fill", "#CC0000")
+            //     .merge(c)
+            //         .transition()
+            //         .delay(200)
+            //         .duration(1000)
+            //         .attr("cx", function(d) { return xScale(new Date(d.Date));})
+            //         .attr("cy", function(d) { return yScale(d.Confirmed); })        
+            //         .attr("fill", "#CC0000");
 
-                c.exit()
-                    .transition()
-                    .duration(1000)
-                    .attr("r",0)
-                    .remove();
-                    
-                    
-                                    var tooltip = d3.select("#lineChart")
-                                    .append("div")
-                                    .attr("class","tooltip");
-                            
-                                    circle.on("mouseover", function(d){ 
-                            
-                                    var cx = +d3.select(this).attr("cx")+20; 
-                                    var cy = +d3.select(this).attr("cy")-15; 
-                            
-                                    tooltip.style("visibility","visible")
-                                    .style("left", cx+"px")
-                                    .style("top", cy+"px")
-                                    .text(d.Confirmed);
-                            
-                                    d3.select(this)
-                                    .attr("stroke","#F6C900")
-                                    .attr("stroke-width",2)
-                            
-                                }).on("mouseout", function(){
-                            
-                                    tooltip.style("visibility", "hidden");
-                            
-                                    d3.select(this)
-                                    .attr("stoke","none")
-                                    .attr("stroke-width",0)
-                            
-                                })
+            //     c.exit()
+            //         .transition()
+            //         .duration(1000)
+            //         .attr("r",0)
+            //         .remove();
 
 };
 
