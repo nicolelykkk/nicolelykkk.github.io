@@ -409,18 +409,18 @@ var map = svg.select("#map");
                     .attr("r", 3)
                     .attr("fill", "#33558b")
                 .merge(c)
-                .on("mousemove", function(d) {
-                    d3.select("#tooltip")
-                    .style("top", d3.event.pageY + 20 + "px")
-                    .style("left", d3.event.pageX + 20 + "px")
-                    .style("display", "block")
-                    .text(d.Confirmed);
-                })
-                .on("mouseout", function() {
-                    d3.select("#tooltip")
-                    .style("display", "none");
-                })
-                    .transition()
+                    .on("mousemove", function(d) {
+                        d3.select("#tooltip")
+                        .style("top", d3.event.pageY + 20 + "px")
+                        .style("left", d3.event.pageX + 20 + "px")
+                        .style("display", "block")
+                        .html(d.Date + "<br>" + "Comfired: " + d.Confirmed);
+                    })
+                    .on("mouseout", function() {
+                        d3.select("#tooltip")
+                        .style("display", "none");
+                    })
+                .transition()
                     // .delay(200)
                     .duration(1000)
                     .attr("cx", function(d) { return xScale(new Date(d.Date));})

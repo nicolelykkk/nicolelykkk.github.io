@@ -139,10 +139,11 @@ a:active {
     left: 0px;
     top: 0px;
     /* visibility: hidden; */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 16pt;
-    background-color:rgba(246,201,0,0.4);
-    padding: 2px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    background-color:#33558b;
+    padding: 5px;
     pointer-events: none; 
+    color: white;
 }
