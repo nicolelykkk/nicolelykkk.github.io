@@ -390,7 +390,7 @@ var map = svg.select("#map");
                 .remove();
 
             // var circle = svg.selectAll(".circle")
-            //     .data([filtered_data])
+            //     .data(filtered_data)
             //     .enter()
             //     .append("circle")
             //         .attr("class","circle")
@@ -399,28 +399,41 @@ var map = svg.select("#map");
             //         .attr("r", 3)
             //         .attr("fill", "#CC0000");
 
-            // var c =svg.selectAll(".circle")
-            //         .data([filtered_data]);
+            var c =lineChart.selectAll(".circle")
+                    .data(filtered_data);
 
-            //     c.enter().append("circle")
-            //         .attr("class","circle")
-            //         .attr("cx", function(d) { return xScale(new Date(d.Date)); })
-            //         .attr("cy", function(d) { return yScale(d.Confirmed); })
-            //         .attr("r", 5)
-            //         .attr("fill", "#CC0000")
-            //     .merge(c)
-            //         .transition()
-            //         .delay(200)
-            //         .duration(1000)
-            //         .attr("cx", function(d) { return xScale(new Date(d.Date));})
-            //         .attr("cy", function(d) { return yScale(d.Confirmed); })        
-            //         .attr("fill", "#CC0000");
+                c.enter().append("circle")
+                    .attr("class","circle")
+                    .attr("cx", function(d) { return xScale(new Date(d.Date)); })
+                    .attr("cy", function(d) { return yScale(d.Confirmed); })
+                    .attr("r", 5)
+                    .attr("fill", "#CC0000")
+                .merge(c)
+                .on("mousemove", function(d) {
+                    d3.select("#tooltip")
+                    .style("top", d3.event.pageY + 20 + "px")
+                    .style("left", d3.event.pageX + 20 + "px")
+                    .style("display", "block")
+                    .text(d.Confirmed);
+                })
+                .on("mouseout", function() {
+                    d3.select("#tooltip")
+                    .style("display", "none");
+                })
+                    .transition()
+                    .delay(200)
+                    .duration(1000)
+                    .attr("cx", function(d) { return xScale(new Date(d.Date));})
+                    .attr("cy", function(d) { return yScale(d.Confirmed); })        
+                    .attr("fill", "#CC0000")
 
-            //     c.exit()
-            //         .transition()
-            //         .duration(1000)
-            //         .attr("r",0)
-            //         .remove();
+                    
+
+                c.exit()
+                    .transition()
+                    .duration(1000)
+                    .attr("r",0)
+                    .remove();
 
 };
 
