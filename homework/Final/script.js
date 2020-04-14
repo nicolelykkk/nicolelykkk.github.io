@@ -134,7 +134,7 @@ var map = svg.select("#map");
                     //     console.log(d);
                     //     return countriesColor(d.name);
                     // })
-                    .attr("fill", "#33558b")
+                    .attr("fill", "white")
                     .attr("stroke", "grey");
 
                 // var points = [
