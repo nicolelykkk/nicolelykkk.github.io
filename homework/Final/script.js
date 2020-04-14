@@ -406,8 +406,8 @@ var map = svg.select("#map");
                     .attr("class","circle")
                     .attr("cx", function(d) { return xScale(new Date(d.Date)); })
                     .attr("cy", function(d) { return yScale(d.Confirmed); })
-                    .attr("r", 5)
-                    .attr("fill", "#CC0000")
+                    .attr("r", 3)
+                    .attr("fill", "#33558b")
                 .merge(c)
                 .on("mousemove", function(d) {
                     d3.select("#tooltip")
@@ -421,11 +421,11 @@ var map = svg.select("#map");
                     .style("display", "none");
                 })
                     .transition()
-                    .delay(200)
+                    // .delay(200)
                     .duration(1000)
                     .attr("cx", function(d) { return xScale(new Date(d.Date));})
                     .attr("cy", function(d) { return yScale(d.Confirmed); })        
-                    .attr("fill", "#CC0000")
+                    .attr("fill", "#33558b")
 
                     
 
