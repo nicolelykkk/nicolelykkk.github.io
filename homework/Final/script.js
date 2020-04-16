@@ -280,7 +280,7 @@ var map = svg.select("#map");
 
         var fullData;
 
-        d3.csv("./data/COVID1.csv", function(error, data) {
+        d3.csv("./data/COVID2.csv", function(error, data) {
                 console.log(data);
 
             fullData = data;
@@ -408,32 +408,43 @@ var map = svg.select("#map");
                     .attr("cy", function(d) { return yScale(d.Confirmed); })
                     .attr("r", 3)
                     .attr("fill", "#33558b")
-                .merge(c)
-                    .on("mousemove", function(d) {
+                    .merge(c)
+                    
+                    c.on("mouseover", function(d) {
                         d3.select("#tooltip")
                         .style("top", d3.event.pageY + 20 + "px")
                         .style("left", d3.event.pageX + 20 + "px")
                         .style("display", "block")
-                        .html(d.Date + "<br>" + "Comfired: " + d.Confirmed);
+                        .html(d.Date + "<br>" + "Confirmed: " + d.Confirmed);
+
+                        d3.select(this)
+                        .attr("fill","#ffffff")
+                        .attr("stroke", "#33558b")
+                        .attr("stroke-width",2)
+                        .attr("r",6)
                     })
                     .on("mouseout", function() {
                         d3.select("#tooltip")
                         .style("display", "none");
+
+                        d3.select(this)
+                        .attr("fill","#33558b")
+                        .attr("stroke", "none")
+                        .attr("stroke-width",0)
+                        .attr("r",3);
                     })
-                .transition()
-                    // .delay(200)
+                    .transition()
                     .duration(1000)
                     .attr("cx", function(d) { return xScale(new Date(d.Date));})
                     .attr("cy", function(d) { return yScale(d.Confirmed); })        
-                    .attr("fill", "#33558b")
-
+                    .attr("fill", "#33558b");
                     
-
-                c.exit()
+                    c.exit()
                     .transition()
                     .duration(1000)
                     .attr("r",0)
                     .remove();
+
 
 };
 

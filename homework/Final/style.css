@@ -22,7 +22,6 @@ body {
     color:black;
     padding: 40vh 20px;
     text-align: center;
-    /* text-shadow: 2px 2px 5px white; */
 }
 
 #intro {
@@ -146,4 +145,5 @@ a:active {
     padding: 5px;
     pointer-events: none; 
     color: white;
+    border-radius: 10px;
 }
