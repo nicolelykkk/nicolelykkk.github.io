@@ -99,7 +99,7 @@ background-color: black;
     .step p {
         transition-duration: 5ms;
         text-align: left;
-        padding: 1rem;
+        padding: 12pt;
         font-size: 12pt;
     }
 
