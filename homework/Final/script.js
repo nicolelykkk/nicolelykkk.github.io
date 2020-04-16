@@ -224,7 +224,7 @@ var map = svg.select("#map");
 
             // update graphic based on step
             if (response.index === 0){
-                drawLineChart("Asia excl. China")
+                drawLineChart("Asia")
             } 
             if (response.index === 1){
                 drawLineChart("United States")

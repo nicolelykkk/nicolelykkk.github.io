@@ -13,6 +13,17 @@ body {
     position: relative;
     font-size: 25px;
     color: black;
+
+}
+
+#intro {
+margin-left: 500px;
+margin-right: 500px;
+padding: 10pt;
+font-size: 12pt;
+color:white;
+background-color: black;
+
 }
 
 #banner {
@@ -24,10 +35,6 @@ body {
     text-align: center;
 }
 
-#intro {
-    text-align: center;
-    color: #33558b;
-}
 
     #scrolly {
     position: relative;
